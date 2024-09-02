@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.lane {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    min-height: 400px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.item {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #fff;
+    cursor: move;
+}

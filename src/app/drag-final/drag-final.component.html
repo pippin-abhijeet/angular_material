@@ -1,0 +1,21 @@
+<div class="container" cdkDropListGroup>
+    <div
+      class="lane"
+      *ngFor="let list of lists"
+      cdkDropList
+      [cdkDropListData]="list.items"
+      (cdkDropListDropped)="drop($event)"
+      [cdkDropListEnterPredicate]="controlPredicate"
+    >
+      <h3>{{ list.name }}</h3>
+      <div
+        class="item"
+        *ngFor="let item of list.items"
+        cdkDrag
+        cdkDragData="apple"
+      >
+        {{ item }}
+      </div>
+    </div>
+</div>
+  

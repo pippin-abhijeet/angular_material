@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Material Form</h1>
+    <form [formGroup]="materialForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name">
+        <mat-error *ngIf="materialForm.get('name')?.invalid && materialForm.get('name')?.touched">
+          Name is required
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email">
+        <mat-error *ngIf="materialForm.get('email')?.invalid && materialForm.get('email')?.touched">
+          Enter a valid email
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Age</mat-label>
+        <input matInput formControlName="age" type="number">
+        <mat-error *ngIf="materialForm.get('age')?.invalid && materialForm.get('age')?.touched">
+          Age must be at least 18
+        </mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="materialForm.invalid">Submit</button>
+    </form>
+</div>
+  

@@ -1,0 +1,41 @@
+<div class="drag-element" cdkDrag>
+    Drag me
+</div>
+
+
+<div cdkDropListGroup style="display: flex;justify-content: space-around;border: 2px solid darkcyan;">
+    <div style="border: 1px solid blue;">
+        <h2>To-Do</h2>
+        <div [cdkDropListData]="todo" cdkDropList id="list-one" class="cdk-drop-list-dragging" (cdkDropListDropped)="dropAcrossLists($event)">
+            @for (task of todo; track task) {
+                <div class="drag-element cdk-drag cdk-drag-animating" cdkDrag>{{task}}</div>
+              }
+        </div>
+    </div>
+    <div style="border: 1px solid blue;">
+        <h2>Done</h2>
+        <div [cdkDropListData]="done" cdkDropList id="list-two" (cdkDropListDropped)="dropAcrossLists($event)">
+            @for (task of done; track task) {
+                <div class="drag-element" cdkDrag>{{task}}</div>
+              }
+        </div>
+    </div>
+</div>
+
+
+
+
+<div cdkDropList class="drop-list">
+    <div cdkDrag class="drag-element">Hello</div>
+    <div cdkDrag class="drag-element">there</div>
+    <div cdkDrag class="drag-element">how</div>
+    <div cdkDrag class="drag-element">are</div>
+    <div cdkDrag class="drag-element">you</div>
+</div>
+
+
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    @for (movie of movies; track movie) {
+      <div class="drag-element" cdkDrag>{{movie}}</div>
+    }
+</div>

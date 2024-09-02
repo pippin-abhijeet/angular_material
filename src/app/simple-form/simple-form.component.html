@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Simple Form</h1>
+    <form [formGroup]="simpleForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" formControlName="name">
+        <div class="error" *ngIf="simpleForm.get('name')?.invalid && simpleForm.get('name')?.touched">
+          Name is required
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" type="email">
+        <div class="error" *ngIf="simpleForm.get('email')?.invalid && simpleForm.get('email')?.touched">
+          Enter a valid email
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input id="age" formControlName="age" type="number">
+        <div class="error" *ngIf="simpleForm.get('age')?.invalid && simpleForm.get('age')?.touched">
+          Age must be at least 18
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="simpleForm.invalid">Submit</button>
+    </form>
+</div>
+  
